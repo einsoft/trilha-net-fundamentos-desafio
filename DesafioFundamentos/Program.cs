@@ -23,11 +23,15 @@ bool exibirMenu = true;
 while (exibirMenu)
 {
     Console.Clear();
-    Console.WriteLine("Digite a sua opção:");
-    Console.WriteLine("1 - Cadastrar veículo");
-    Console.WriteLine("2 - Remover veículo");
-    Console.WriteLine("3 - Listar veículos");
-    Console.WriteLine("4 - Encerrar");
+    Console.WriteLine("\x1b[96m🅿️ SISTEMA DE ESTACIONAMENTO 🅿️\x1b[0m");
+    Console.WriteLine("\x1b[90m═══════════════════════════════════\x1b[0m");
+    Console.WriteLine("\x1b[93m┌─ Selecione uma opção ─┐\x1b[0m");
+    Console.WriteLine("\x1b[92m│ 🟢 1 - Cadastrar veículo    │\x1b[0m");
+    Console.WriteLine("\x1b[91m│ 🔴 2 - Remover veículo      │\x1b[0m");
+    Console.WriteLine("\x1b[94m│ 🔵 3 - Listar veículos      │\x1b[0m");
+    Console.WriteLine("\x1b[90m│ ⚫ 4 - Encerrar             │\x1b[0m");
+    Console.WriteLine("\x1b[93m└─────────────────────────┘\x1b[0m");
+    Console.WriteLine("\x1b[93m└─ Digite sua opção: ──────┘\x1b[0m");
 
     switch (Console.ReadLine())
     {
@@ -48,12 +52,12 @@ while (exibirMenu)
             break;
 
         default:
-            Console.WriteLine("Opção inválida");
+            Console.WriteLine("\x1b[91m❌ Opção inválida! Tente novamente.\x1b[0m");
             break;
     }
 
-    Console.WriteLine("Pressione uma tecla para continuar");
+    Console.WriteLine("\x1b[90mPressione uma tecla para continuar...\x1b[0m");
     Console.ReadLine();
 }
 
-Console.WriteLine("O programa se encerrou");
+Console.WriteLine("\x1b[96m👋 O programa se encerrou. Até logo!\x1b[0m");

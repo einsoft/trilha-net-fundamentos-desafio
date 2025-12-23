@@ -14,38 +14,38 @@ namespace DesafioFundamentos.Models
 
         public void AdicionarVeiculo()
         {
-            Console.WriteLine("Digite a placa do veículo para estacionar:");
+            Console.WriteLine("\x1b[93m🚗 Digite a placa do veículo para estacionar:\x1b[0m");
             
             // ✅ IMPLEMENTAÇÃO: Adicionar validação de entrada e adição de veículo
             string placa = Console.ReadLine();
             if (!string.IsNullOrEmpty(placa))
             {
                 veiculos.Add(placa);
-                Console.WriteLine($"Veículo {placa} estacionado com sucesso!");
+                Console.WriteLine($"\x1b[92m✅ Veículo {placa} estacionado com sucesso!\x1b[0m");
             }
             else
             {
-                Console.WriteLine("Placa não pode estar vazia. Operação cancelada.");
+                Console.WriteLine($"\x1b[91m❌ Placa não pode estar vazia. Operação cancelada.\x1b[0m");
             }
         }
 
         public void RemoverVeiculo()
         {
-            Console.WriteLine("Digite a placa do veículo para remover:");
+            Console.WriteLine("\x1b[93m🔴 Digite a placa do veículo para remover:\x1b[0m");
 
             // ✅ IMPLEMENTAÇÃO: Obter entrada da placa com validação
             string placa = Console.ReadLine();
             
             if (string.IsNullOrEmpty(placa))
             {
-                Console.WriteLine("Placa não pode estar vazia. Operação cancelada.");
+                Console.WriteLine($"\x1b[91m❌ Placa não pode estar vazia. Operação cancelada.\x1b[0m");
                 return;
             }
 
             // Verifica se o veículo existe (case-insensitive)
             if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
             {
-                Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
+                Console.WriteLine("\x1b[93m⏱️ Digite a quantidade de horas que o veículo permaneceu estacionado:\x1b[0m");
 
                 // ✅ IMPLEMENTAÇÃO: Obter entrada de horas com validação
                 try
@@ -54,7 +54,7 @@ namespace DesafioFundamentos.Models
                     
                     if (horas <= 0)
                     {
-                        Console.WriteLine("Quantidade de horas deve ser maior que zero. Operação cancelada.");
+                        Console.WriteLine($"\x1b[91m⚠️ Quantidade de horas deve ser maior que zero. Operação cancelada.\x1b[0m");
                         return;
                     }
                     
@@ -65,20 +65,20 @@ namespace DesafioFundamentos.Models
                     // ✅ IMPLEMENTAÇÃO: Remover veículo da lista
                     veiculos.Remove(placa);
 
-                    Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
+                    Console.WriteLine($"\x1b[92m💰 O veículo {placa} foi removido e o preço total foi de: {valorTotal:C}\x1b[0m");
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Quantidade de horas inválida. Operação cancelada.");
+                    Console.WriteLine($"\x1b[91m❌ Quantidade de horas inválida. Operação cancelada.\x1b[0m");
                 }
                 catch (OverflowException)
                 {
-                    Console.WriteLine("Quantidade de horas muito grande. Operação cancelada.");
+                    Console.WriteLine($"\x1b[91m❌ Quantidade de horas muito grande. Operação cancelada.\x1b[0m");
                 }
             }
             else
             {
-                Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
+                Console.WriteLine($"\x1b[91m❌ Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente.\x1b[0m");
             }
         }
 
@@ -87,17 +87,17 @@ namespace DesafioFundamentos.Models
             // Verifica se há veículos no estacionamento
             if (veiculos.Any())
             {
-                Console.WriteLine("Os veículos estacionados são:");
+                Console.WriteLine("\x1b[94m📋 Os veículos estacionados são:\x1b[0m");
                 
                 // ✅ IMPLEMENTAÇÃO: Exibir todos os veículos usando loop foreach
                 foreach (string placa in veiculos)
                 {
-                    Console.WriteLine(placa);
+                    Console.WriteLine($"\x1b[96m  🚗 {placa}\x1b[0m");
                 }
             }
             else
             {
-                Console.WriteLine("Não há veículos estacionados.");
+                Console.WriteLine($"\x1b[93m📭 Não há veículos estacionados.\x1b[0m");
             }
         }
     }
